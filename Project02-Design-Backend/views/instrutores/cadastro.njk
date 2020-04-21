@@ -1,0 +1,47 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+    <form class="card" method="POST" action="/instrutores">
+        <section class="avatar" style='background: url(https://source.unsplash.com/collection/6800490/500x500) no-repeat top center / cover '>
+            <img src="" alt="">
+        </section>
+
+        <section class="details">
+            <h3>Detalhes</h3>
+            <div class="item">
+                <div>Avatar URL</div>
+                <div>
+                    <input type="url" name="avatar_url" placeholder="http:\\">
+                </div>
+            </div>
+            <div class="item">
+                <div>Instrutor</div>
+                <div>
+                    <input type="text" name="name" placeholder="Nome do Instrutor">
+                </div>
+            </div>
+            <div class="item">
+                <div>Data de Nascimento</div>
+                <div>
+                    <input type="date" name="data_nasc">
+                </div>
+            </div>
+            <div class="item">
+                <div>Sexo</div>
+                <div>
+                    <span><input type="radio" name="sexo" value="M" checked>masculino</span>
+                    <span><input type="radio" name="sexo" value="F">feminino</span>
+                </div>
+            </div>
+            <div class="item">
+                <div>Área de atuação</div>
+                <div>
+                    <input type="text" name="servicos" placeholder="Separe por virgula os serviços prestados">
+                </div>
+            </div>
+
+            <button type="submit">Salvar</button>
+
+        </section> 
+    </form>
+{% endblock content %}

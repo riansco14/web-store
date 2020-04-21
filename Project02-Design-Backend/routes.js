@@ -9,6 +9,15 @@ routes.get('/instrutores', function(req,res) {
     return res.render("instrutores/index");
 });
 
+routes.get('/instrutores/cadastro', function(req,res) {
+    return res.render("instrutores/cadastro");
+});
+
+routes.post('/instrutores', function(req,res) {
+    console.log("Recebido");
+    
+});
+
 routes.get('/membros', function(req,res) {
     return res.send("M");
 });
