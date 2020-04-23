@@ -4,8 +4,9 @@ const routes=require('./routes');
 
 
 const server = express();
-server.use(express.static('public'));
-server.use(routes);
+server.use(express.urlencoded({extended: true})); //aceita o body do post do cadastro
+server.use(express.static('public')); // arquivos da pasta public
+server.use(routes); //rotas http do site
 server.set("view engine", "njk");
 
 nunjucks.configure("views", {
