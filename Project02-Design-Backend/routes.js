@@ -15,7 +15,15 @@ routes.get('/instrutores/cadastro', function(req,res) {
     return res.render("instrutores/cadastro");
 });
 
-routes.get('/instrutores/:id', instrutores.findByPK);
+routes.get('/instrutores/:id', instrutores.findByPK, function(req,res){
+    const instrutor=req.instrutor;
+    return res.render("instrutores/show", {instrutor});
+});
+
+routes.get('/instrutores/:id/editar', instrutores.findByPK, function(req,res){
+    const instrutor=req.instrutor;
+    return res.render("instrutores/editar",{instrutor});
+});
 
 routes.post('/instrutores', instrutores.post);
 
