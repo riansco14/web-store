@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('./data.json');
-
+const dataUtils=require('./util/data');
 //create
 exports.post = function (req, res) {
     //["avatar_url","name","data_nasc","sexo","servicos"]
@@ -28,15 +28,26 @@ exports.post = function (req, res) {
     return res.send(keys);
 }
 //find 
-exports.findByPK = function (req, res) {
+exports.findByPK = function (req, res, next) {
     const { id } = req.params;
-    const instrutor = data.instrutores.find(function (instrutor) {
+    const instrutorFounded = data.instrutores.find(function (instrutor) {
         if (instrutor.id == id)
             return true;
     });
-    if(!instrutor)
+    if (!instrutorFounded)
         return res.send("Instrutor not found");
-    return res.json(instrutor);
+
+    const instrutor = {
+        ...instrutorFounded,
+        idade: dataUtils.dateAniversarioParser(instrutorFounded.data_nasc),
+        dataNascHTML: dataUtils.dateFormarterHTML(instrutorFounded.data_nasc),
+        sexo: instrutorFounded.sexo=="M"?"Masculino":"Feminino",
+        servicos: instrutorFounded.servicos.split(","),
+        created_at: dataUtils.dateFormarter(instrutorFounded.created_at)
+    }
+
+    req.instrutor=instrutor;
+    return next();
 }
 //update
 
