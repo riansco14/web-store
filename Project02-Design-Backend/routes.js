@@ -15,7 +15,9 @@ routes.get('/instrutores/cadastro', function(req,res) {
     return res.render("instrutores/cadastro");
 });
 
-routes.post('/instrutores', instrutores.post );
+routes.get('/instrutores/:id', instrutores.findByPK);
+
+routes.post('/instrutores', instrutores.post);
 
 routes.get('/membros', function (req, res) {
     return res.send("M");

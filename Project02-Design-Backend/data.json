@@ -1,1 +1,13 @@
-{"avatar_url":"http://localhost:3000/instrutores/cadastro","name":"adasda","data_nasc":"2020-04-21","sexo":"M","servicos":"adasdasda"}
+{
+  "instrutores": [
+    {
+      "id": 1,
+      "avatar_url": "http://localhost:3000/instrutores/cadastro",
+      "name": "VApo",
+      "data_nasc": -631152000000,
+      "sexo": "M",
+      "servicos": "asdasda",
+      "created_at": 1587696127194
+    }
+  ]
+}
