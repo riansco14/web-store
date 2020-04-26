@@ -195,4 +195,9 @@ a.button{
     text-align: center;
     text-decoration: none;
 }
+
+button.excluir{
+    margin-top: 8px;
+    background-color: rgb(206, 65, 65);
+}
 /*======== END CARD INSTRUTOR CADASTRO ========*/

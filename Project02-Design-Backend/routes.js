@@ -26,6 +26,8 @@ routes.get('/instrutores/:id/editar', instrutores.findByPK, function(req,res){
 });
 
 routes.post('/instrutores', instrutores.post);
+routes.put('/instrutores', instrutores.put);
+routes.delete('/instrutores/:id', instrutores.delete);
 
 routes.get('/membros', function (req, res) {
     return res.send("M");

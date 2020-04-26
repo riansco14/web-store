@@ -21,6 +21,5 @@ exports.dateFormarter = function (timestamp) {
 
 exports.dateFormarterHTML = function (timestamp) {
     const formattedDate = new Date(timestamp);
-    console.log(`${formattedDate.getUTCFullYear()}-${String("0"+formattedDate.getUTCMonth()).slice(-2)}-${String("0"+formattedDate.getUTCDate()).slice(-2)}`);
     return `${formattedDate.getUTCFullYear()}-${String("0"+(formattedDate.getUTCMonth()+1)).slice(-2)}-${String("0"+formattedDate.getUTCDate()).slice(-2)}`;
 }
