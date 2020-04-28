@@ -201,3 +201,19 @@ button.excluir{
     background-color: rgb(206, 65, 65);
 }
 /*======== END CARD INSTRUTOR CADASTRO ========*/
+.table-container{
+    display: block;
+    color: black;
+}
+.table-container table{
+    border-spacing: 0;
+}
+.table-container thead{
+    text-align: left;
+   
+}
+
+td, th{
+    padding: 16px;
+    border-bottom: 1px solid #999;
+}

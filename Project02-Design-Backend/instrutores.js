@@ -1,6 +1,12 @@
 const fs = require('fs');
 const data = require('./data.json');
 const dataUtils = require('./util/data');
+
+//index
+exports.index= function (req,res){
+    return res.render("instrutores/index",{instrutores: data.instrutores})
+}
+
 //create
 exports.post = function (req, res) {
     //["avatar_url","name","data_nasc","sexo","servicos"]
