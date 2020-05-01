@@ -31,7 +31,6 @@ exports.post = function (req, res) {
             return res.send("Falhou escrita");
         return res.redirect("/instrutores");
     });
-    return res.send(keys);
 }
 //find 
 exports.findByPK = function (req, res, next) {
@@ -46,7 +45,7 @@ exports.findByPK = function (req, res, next) {
     const instrutor = {
         ...instrutorFounded,
         idade: dataUtils.dateAniversarioParser(instrutorFounded.data_nasc),
-        dataNascHTML: dataUtils.dateFormarterHTML(instrutorFounded.data_nasc),
+        dataNascHTML: dataUtils.dateFormarterHTML(instrutorFounded.data_nasc).iso,
         sexo: instrutorFounded.sexo == "M" ? "Masculino" : "Feminino",
         servicos: instrutorFounded.servicos.split(","),
         created_at: dataUtils.dateFormarter(instrutorFounded.created_at)

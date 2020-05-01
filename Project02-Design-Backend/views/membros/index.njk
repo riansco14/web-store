@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="card table-container">
+        <a href="/membros/cadastro">Novo</a>
         <table width="100%">
             <thead>
                 <tr>
@@ -10,6 +11,12 @@
                     </th>
                     <th>
                         Atendimento
+                    </th>
+                    <th>
+                        Peso
+                    </th>
+                    <th>
+                        Altura
                     </th>
                     <th>
                         Ação
@@ -24,8 +31,10 @@
                             {{membro.name}}
                         </td>
                         <td>
-                            {{membro.servicos}}
+                            {{membro.email}}
                         </td>
+                        <td>{{membro.peso}}kg</td>
+                        <td>{{membro.altura}}cm</td>
                         <td>
                             <a href="membros/{{membro.id}}">Ver</a>
                         </td>

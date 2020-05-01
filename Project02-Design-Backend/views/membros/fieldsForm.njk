@@ -5,11 +5,18 @@
     </div>
 </div>
 <div class="item">
-    <div>Instrutor</div>
+    <div>Nome</div>
     <div>
         <input type="text" name="name" placeholder="Nome do Instrutor" value={{membro.name}}>
     </div>
 </div>
+<div class="item">
+    <div>Email</div>
+    <div>
+    <input type="email" name="email" value="{{membro.email}}">
+    </div>
+</div>
+
 <div class="item">
     <div>Data de Nascimento</div>
     <div>
@@ -24,11 +31,42 @@
         <span><input type="radio" name="sexo" value="F" {% if membro.sexo=="Feminino" %} checked {% endif %}>feminino</span>
     </div>
 </div>
+
 <div class="item">
-    <div>Área de atuação</div>
+<div>Tipo Sanguineo</div>
     <div>
-        <input type="text" name="servicos" placeholder="Separe por virgula os serviços prestados" value={{membro.servicos}}>
+        <select name="tipo_sangue">
+            <option value="A+"
+            {% if membro.tipo_sangue =="A+" %}selected{% endif %}>A+</option>
+            <option value="A-"
+            {% if membro.tipo_sangue =="A-" %}selected{% endif %}>A-</option>
+            <option value="B+"
+            {% if membro.tipo_sangue =="B+" %}selected{% endif %}>B+</option>
+            <option value="B-"
+            {% if membro.tipo_sangue =="B-" %}selected{% endif %}>B-</option>
+            <option value="AB+"
+            {% if membro.tipo_sangue =="AB+" %}selected{% endif %}>AB+</option>
+            <option value="AB-"
+            {% if membro.tipo_sangue =="AB-" %}selected{% endif %}>AB-</option>
+            <option value="O+"
+            {% if membro.tipo_sangue =="O+" %}selected{% endif %}>O+</option>
+            <option value="O-"
+            {% if membro.tipo_sangue =="O-" %}selected{% endif %}>O-</option>
+        </select>
     </div>
 </div>
 
+<div class="item">
+    <div>Peso(kg)</div>
+    <div>
+        <input type="number" name="peso" value="{{membro.peso}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Altura(cm)</div>
+    <div>
+        <input type="number" name="altura" value="{{membro.altura}}">
+    </div>
+</div>
 <button type="submit">Salvar</button>

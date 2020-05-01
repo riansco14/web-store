@@ -158,7 +158,7 @@ header{
 /*======== END CARD INSTRUTOR ========*/
 
 /*======== CARD INSTRUTOR CADASTRO ========*/
-input{
+input,select{
     width: 100%;
     outline: none;
     font-size: 18px;
@@ -244,7 +244,8 @@ tbody tr td:first-child span{
     box-shadow: 3px 3px 6px -4px black;
     border: 1px solid white;
 }
-tbody tr td:last-child a{
+tbody tr td:last-child a,
+.table-container>a{
     background: var(--primary-color);
     padding: 8px 16px;
     border-radius: 8px;
@@ -252,6 +253,11 @@ tbody tr td:last-child a{
     text-transform: uppercase;
     text-decoration: none;
     font-size: 12px;
+}
+
+.table-container>a{
+    display: inline-block;
+    margin-bottom: 32px;
 }
 
 .table-container thead tr th:last-child,tbody tr td:last-child{

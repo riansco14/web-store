@@ -15,14 +15,25 @@ exports.post = function (req, res) {
         if (req.body[key] == "")
             return res.send("Preencha todos os campos");
     }
-    const { avatar_url, name, sexo, servicos } = req.body;
+
+    let id=1;
+    const lastMembro=data.membros[data.membros.length-1];
+    if(lastMembro){
+        id=lastMembro.id+1;
+    }
+
+
+    const { avatar_url, name, email, sexo, tipo_sangue, peso, altura } = req.body;
     data.membros.push({
-        id: Number(data.membros.length + 1),
+        id: id,
         avatar_url,
         name,
+        email,
         data_nasc: Date.parse(req.body['data_nasc']),
         sexo,
-        servicos,
+        tipo_sangue, 
+        peso, 
+        altura,
         created_at: Date.now()
     });
 
@@ -31,7 +42,6 @@ exports.post = function (req, res) {
             return res.send("Falhou escrita");
         return res.redirect("/membros");
     });
-    return res.send(keys);
 }
 //find 
 exports.findByPK = function (req, res, next) {
@@ -45,10 +55,9 @@ exports.findByPK = function (req, res, next) {
 
     const membro = {
         ...membroFounded,
-        idade: dataUtils.dateAniversarioParser(membroFounded.data_nasc),
-        dataNascHTML: dataUtils.dateFormarterHTML(membroFounded.data_nasc),
+        idade: dataUtils.dateFormarterHTML(membroFounded.data_nasc).aniversario,
+        dataNascHTML: dataUtils.dateFormarterHTML(membroFounded.data_nasc).iso,
         sexo: membroFounded.sexo == "M" ? "Masculino" : "Feminino",
-        servicos: membroFounded.servicos.split(","),
         created_at: dataUtils.dateFormarter(membroFounded.created_at)
     }
 
@@ -60,7 +69,7 @@ exports.put = function (req, res) {
 
     const { id } = req.body;
     console.log("passou aqui update");
-    const { avatar_url, name, sexo, servicos } = req.body;
+    const { avatar_url, name, email, sexo, tipo_sangue, peso, altura } = req.body;
 
     const membroFounded = data.membros.find(function (membro) {
         if (membro.id == id) {
@@ -72,9 +81,12 @@ exports.put = function (req, res) {
         ...membroFounded,
         avatar_url,
         name,
+        email,
         data_nasc: Date.parse(req.body['data_nasc']),
         sexo,
-        servicos,
+        tipo_sangue,
+        peso,
+        altura
     }
     data.membros[data.membros.indexOf(membroFounded)]= membro;
     
