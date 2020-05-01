@@ -201,11 +201,15 @@ button.excluir{
     background-color: rgb(206, 65, 65);
 }
 /*======== END CARD INSTRUTOR CADASTRO ========*/
+/*======== TABLE INSTRUTOR ========*/
 .table-container{
     display: block;
+    padding: 40px;
     color: black;
+    box-sizing: border-box;
 }
 .table-container table{
+    width: 100%;
     border-spacing: 0;
 }
 .table-container thead{
@@ -215,5 +219,42 @@ button.excluir{
 
 td, th{
     padding: 16px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #d9d9d9;
+}
+th{
+    text-transform: uppercase;
+    color:#777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td{
+    border: none;
+}
+tbody tr td:first-child{
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span{
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 3px 6px -4px black;
+    border: 1px solid white;
+}
+tbody tr td:last-child a{
+    background: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.table-container thead tr th:last-child,tbody tr td:last-child{
+    text-align: center;
+    
 }
