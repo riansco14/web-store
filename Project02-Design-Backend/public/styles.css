@@ -74,8 +74,8 @@ header{
     box-shadow: 8px 14px 6px -10px rgba(0,0,0,0.5);
     /* animacao */
     animation-name: up;
-    animation-duration: 700ms;
     animation-timing-function: ease-out;
+    animation-duration: 700ms;
     /* 
     animation-delay: 1s;
     animation-timing-function: ease-out; animação suave

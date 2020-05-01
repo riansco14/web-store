@@ -3,7 +3,7 @@
     {
       "id": 1,
       "avatar_url": "https://images.unsplash.com/photo-1553531580-a000ac8df244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80",
-      "name": "Ricoasdasdas",
+      "name": "Rico Demery",
       "data_nasc": 861840000000,
       "sexo": "M",
       "servicos": "tantan",
@@ -14,6 +14,17 @@
       "avatar_url": "https://images.unsplash.com/photo-1553531580-a000ac8df244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80",
       "name": "Ricoasdasdas",
       "data_nasc": 861840000000,
+      "sexo": "M",
+      "servicos": "tantan",
+      "created_at": 1587701467072
+    }
+  ],
+  "membros": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
+      "name": "Rico",
+      "data_nasc": -5354899200000,
       "sexo": "M",
       "servicos": "tantan",
       "created_at": 1587701467072
