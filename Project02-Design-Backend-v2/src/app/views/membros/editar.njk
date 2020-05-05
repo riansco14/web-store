@@ -1,0 +1,30 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+    <div class="card">
+        <section class="avatar" style='background: url({{membro.avatar_url}}) no-repeat top center / cover '>
+            <img src="" alt="">
+        </section>
+
+        <section class="details">
+            <form  method="POST" action="/membros?_method=PUT">
+                <h3>Editar Detalhes</h3>
+                {% include "membros/fieldsForm.njk" %}
+                <input type="hidden" name="id" value={{membro.id}}>
+                
+            </form>
+            <form id="formExcluir" action="/membros/{{membro.id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="id" value={{membro.id}}>
+                    <button class="button excluir" type="submit">Excluir</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+                const formExcluir=document.querySelector("#formExcluir");
+                formExcluir.addEventListener("submit",function(event){
+                    if(!window.confirm("Deseja deletar?"))
+                        event.preventDefault();
+                })
+    </script>
+{% endblock content %}

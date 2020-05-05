@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root{
+    --primary-color: #7159c1;
+    --secondary-color: #f7d71e;
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+body{
+    background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+header{
+    background-color: white;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.links{
+    font-size: 22px;
+}
+
+.links a + a{
+    margin-left: 32px;
+}
+
+.links a{
+    text-decoration: none;
+    color: #777;
+    position: relative;
+}
+
+.links a.active{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.links a:hover{
+    color: var(--primary-color);
+}
+
+.links a::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+}
+.links a:hover::after{
+    width: 100%;
+    transition: width 100ms ease-in-out;
+
+}
+
+/*======== CARD INSTRUTOR ========*/
+.card{
+    background-color: white;
+    width: 800px;
+    min-height: 400px;
+    margin: 45px auto;
+    /*dividir o card */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* sombra */
+    box-shadow: 8px 14px 6px -10px rgba(0,0,0,0.5);
+    /* animacao */
+    animation-name: up;
+    animation-timing-function: ease-out;
+    animation-duration: 700ms;
+    /* 
+    animation-delay: 1s;
+    animation-timing-function: ease-out; animação suave
+    
+    animation-fill-mode: backwards; volta ao estado inicial
+    animation-fill-mode: forwards; deixa a animação com o estilo final
+    
+    animation-play-state: paused; deixa a animação pausada
+    
+    animation-iteration-count: infinite; quantidade de vezes que ela anima
+    animation-iteration-count: 3; quantidade de vezes que ela anima
+    
+    animation-direction: reverse; roda ao contrario, (cima pra baixo, baixo pra cima)
+    
+    */
+}
+
+@keyframes up{
+    from{
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.details{
+    padding: 32px;
+}
+
+.details .item{
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.details h3,
+.details .item div:nth-child(1){
+    font-size: 14px;
+    line-height: 24px;
+    color: #777 ;
+    letter-spacing: 0.7px;
+}
+
+.details .item div:nth-child(2){
+    color: rgba(0,0,0,0.7);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.details .item:last-child{
+    border: none;
+}
+/*
+.details .item .acompanhamento{
+    display: grid;
+    grid-row: 1fr 1fr;
+}
+*/
+.details .item span{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 16px;
+    margin-top: 8px;
+    margin-right: 8px;
+    color: #888;
+    text-transform: uppercase;
+    background-color: var(--secondary-color);
+}
+
+.details h3{
+    font-size: 18px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    weight: bold;
+}
+
+/*======== END CARD INSTRUTOR ========*/
+
+/*======== CARD INSTRUTOR CADASTRO ========*/
+input,select{
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="radio"]{
+    width: initial;
+    margin-right: 4px;
+}
+input::placeholder{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+button[type="submit"],
+a.button{
+    width: 100%;
+    padding: 8px 32px;
+    margin-top: 32px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color:white;
+    font-size: 16px;
+
+}
+/*======== END CARD INSTRUTOR CADASTRO ========*/
+/*======== CARD INSTRUTOR SHOW ========*/
+a.button{
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+button.excluir{
+    margin-top: 8px;
+    background-color: rgb(206, 65, 65);
+}
+/*======== END CARD INSTRUTOR CADASTRO ========*/
+/*======== TABLE INSTRUTOR ========*/
+.table-container{
+    display: block;
+    padding: 40px;
+    color: black;
+    box-sizing: border-box;
+}
+.table-container table{
+    width: 100%;
+    border-spacing: 0;
+}
+.table-container thead{
+    text-align: left;
+   
+}
+
+td, th{
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+}
+th{
+    text-transform: uppercase;
+    color:#777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td{
+    border: none;
+}
+tbody tr td:first-child{
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span{
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 3px 6px -4px black;
+    border: 1px solid white;
+}
+tbody tr td:last-child a,
+.table-container>a{
+    background: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.table-container>a{
+    display: inline-block;
+    margin-bottom: 32px;
+}
+
+.table-container thead tr th:last-child,tbody tr td:last-child{
+    text-align: center;
+    
+}
