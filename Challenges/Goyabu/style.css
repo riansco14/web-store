@@ -1,0 +1,254 @@
+:root{
+    --color-background: #171717;
+    --color-navbar: #101010;
+    --color-font: white;
+    --color-navbar2: #232222;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+body{
+    background-color: var(--color-background);
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-navbar);
+    box-sizing: border-box;
+    padding: 6px 6px;
+    z-index: 2000;
+}
+.navbar > div{
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+}
+
+.center{
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height: 60%;
+    margin: auto;
+}
+.btn-lupa{
+    width: 100%;
+    height: 100%;
+    background-color: #e12330;
+}
+.btn{
+    width: 80px;
+    height: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+.input{
+    height: 100%;
+    width: 680px;
+    background: #191717;
+    color: #bdb9b9;
+    font-weight: 300;
+    font-size: 16px;
+    border: #94909038 1px solid;
+    border-radius: 4px;
+}
+.input:hover,.input:focus{
+    background-color: #3e3d3d;
+}
+
+
+#btn-aleatorio{
+    position: absolute;
+    display: inline-block;
+    width: 70px;
+    height: 50px;
+    left: 545px;
+    top:0;
+    vertical-align: middle;
+}
+
+#btn-lupa{
+    display: inline-block;
+    width: 70px;
+    height: 50px;
+    position: absolute;
+    left: 615px;
+    top:0;
+
+    border-radius: 5px;
+
+
+}
+
+.form-container{
+    width: 800px;
+}
+/* ======================*/
+.wrapper{
+    margin: 0 auto;
+    width: 1366px;
+    padding: 30px;
+}
+
+.card{
+    display: inline-block;
+    width: 210px;
+    height: 200px;
+    padding: 0 4px;
+}
+
+.card-image-container{
+    position: relative;
+    height: 110px;
+    padding: 4px 0;
+}
+
+.card-image-container img{
+    object-fit: cover;
+    object-position: -20% 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card-image-container div{
+    background: rgba(15, 15, 15, 0.8);
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 2px;
+
+}
+
+.card-info #card-info-title{
+    font-size: 14px;
+    font-weight: 500;
+    color: #d0d0d0;
+    margin: 12px 0;
+}
+
+.card-info #card-info-uploader{
+    font-size: 14px;
+    font-weight: 300;
+    color: #eaeaea;
+}
+
+.card-info #card-info-uploader span{
+    font-size: 14px;
+    margin-left: 2px;
+    vertical-align: middle;
+    margin-top: -2px;
+    color: #eaeaea;
+}
+
+.card-info #card-info-categorias{
+    font-size: 14px;
+    font-weight: 300;
+    color: #b1b1b1;
+}
+
+.carousel{
+    position: relative;
+    margin: 48px 0;
+}
+
+.carousel #carousel-title{
+    color: #888888;
+    font-weight: 500;
+    line-height: 26px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.carousel #carousel-set{
+    background-color: #eaeaea54 ;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    border-radius: 50%;
+}
+.carousel #carousel-set:hover{
+    background-color: #eaeaeaaf ;
+}
+.carousel #carousel-set span{
+    padding-left: 10px;
+    font-size: 30px;
+    color: black;
+}
+
+.left{
+    left: -25px;
+}
+
+
+.sidebar{
+    display: block;
+    position: fixed;
+    background-color: var(--color-navbar2);
+    height: 100%;
+    width: 230px;
+    z-index: 1000;
+    top: 60px;
+}
+.sidebar-content{
+    padding-left: 16px;
+}
+.sidebar-content ul{
+    list-style: none;
+}
+.sidebar-content li{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #eaeaeaa9;
+    font-weight: 300;
+    height: 30px;
+    line-height: 24px;
+}
+
+.sidebar-content span{
+    font-size: 24px;
+    color: #eaeaeaa9;
+    margin-top: -4px 0 0 0;
+    vertical-align: middle;
+    font-weight: 300;
+    margin-right: 12px;
+}
