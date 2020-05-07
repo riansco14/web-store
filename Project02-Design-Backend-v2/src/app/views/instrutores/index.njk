@@ -2,7 +2,13 @@
 
 {% block content %}
     <div class="card table-container">
-        <a href="/instrutores/cadastro">Novo</a>
+        <div class="table-header-options">
+                <a class="button" href="/instrutores/cadastro">Novo</a>
+                <form action="/instrutores" method="GET">
+                    <input type="text" name="filter" placeholder="Filtrar por nome">
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
         <table width="100%">
             <thead>
                 <tr>

@@ -48,6 +48,20 @@ module.exports ={
             callback(results.rows[0]);
         });
     },
+    findBy(filter,callback){
+        const query = `SELECT instrutores.*, count(membros) as total_alunos 
+        FROM instrutores 
+        INNER JOIN membros ON (membros.instrutor_id=instrutores.id)
+        WHERE instrutores.name ILIKE '${filter}%' 
+        OR instrutores.servicos ILIKE '%${filter}%'  
+        GROUP BY instrutores."id"
+        ORDER BY total_alunos DESC`;
+
+        db.query(query, function(err,results) {
+            if(err) throw `Database error ${err}`
+            callback(results.rows);
+        });
+    },
     update(data,callback){
         const query= `UPDATE instrutores SET 
         avatar_url=$1, 

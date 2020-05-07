@@ -3,11 +3,19 @@ const Instrutor=require('../model/Instrutor');
 
 module.exports={
     index(req,res){
-        Instrutor.all(function(instrutores){
-           console.log(instrutores);
-           
-            return res.render("instrutores/index", {instrutores});
-        });
+        const {filter} = req.query;
+
+        if(filter){
+            Instrutor.findBy(filter, function(instrutores){
+                return res.render("instrutores/index", {instrutores});
+            });
+
+        }
+        else{
+            Instrutor.all(function(instrutores){
+                return res.render("instrutores/index", {instrutores});
+            });
+        }
     },
     create(req,res){
         return res.render("instrutores/cadastro");

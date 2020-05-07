@@ -264,3 +264,21 @@ tbody tr td:last-child a,
     text-align: center;
     
 }
+
+.table-container .table-header-options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.table-container .table-header-options a,
+.table-container .table-header-options button{
+    margin: 0;
+    width: 120px;
+}
+
+.table-container .table-header-options form{
+    display: grid;
+    grid-template-columns: 1fr 120px;
+}
