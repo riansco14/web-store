@@ -20,15 +20,15 @@
 <div class="item">
     <div>Data de Nascimento</div>
     <div>
-        <input type="date" name="data_nasc" value={{membro.dataNascHTML}}>
+        <input type="date" name="data_nasc" value={{membro.data_nasc}}>
     </div>
 </div>
 <div class="item">
     <div>Sexo</div>
 
     <div>
-        <span><input type="radio" name="sexo" value="M" {% if membro.sexo=="Masculino" %} checked {% endif %}>masculino</span>
-        <span><input type="radio" name="sexo" value="F" {% if membro.sexo=="Feminino" %} checked {% endif %}>feminino</span>
+        <span><input type="radio" name="sexo" value="M" {% if membro.sexo=="M" %} checked {% endif %}>masculino</span>
+        <span><input type="radio" name="sexo" value="F" {% if membro.sexo=="F" %} checked {% endif %}>feminino</span>
     </div>
 </div>
 
@@ -69,4 +69,18 @@
         <input type="number" name="altura" value="{{membro.altura}}">
     </div>
 </div>
+
+<div class="item">
+<div>Instrutor</div>
+    <div>
+        <select name="instrutor_id">
+            {% for instrutor in instrutoresOptions %}
+                <option value="{{instrutor.id}}"
+                {% if membro.instrutor_id ==instrutor.id %}selected{% endif %}>
+                {{instrutor.id}} - {{instrutor.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
 <button type="submit">Salvar</button>

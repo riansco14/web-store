@@ -3,11 +3,8 @@ const db = require('../../config/db');
 
 module.exports ={
     all(callback){
-        const query = `SELECT instrutores.*, count(membros) as total_alunos 
-        FROM instrutores 
-        INNER JOIN membros ON (membros.instrutor_id=instrutores.id)
-        GROUP BY instrutores."id"
-        ORDER BY total_alunos DESC`;
+        const query = `SELECT * FROM membros 
+        ORDER BY name ASC`;
 
         db.query(query, function(err,results) {
             if(err) throw `Database error ${err}`
@@ -15,23 +12,29 @@ module.exports ={
         });
     },
     create(data, callback){
-        const query = `INSERT INTO instrutores (
+        const query = `INSERT INTO membros(
             avatar_url,
             name,
-            sexo,
-            servicos,
-            data_nasc,
-            created_at
-            ) VALUES($1,$2,$3,$4,$5,$6)
+            email,
+            sexo,            
+            data_nasc,						
+            tipo_sangue,
+            peso,
+            altura,
+            instrutor_id
+            ) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)
             RETURNING id`;
 
         const values= [
             data.avatar_url,
             data.name,
+            data.email,
             data.sexo,
-            data.servicos,
             date(data.data_nasc).iso,
-            date(Date.now()).iso
+            data.tipo_sangue,
+            data.peso,
+            data.altura,
+            data.instrutor_id
         ];
 
         db.query(query, values, function(err,results){
@@ -40,7 +43,10 @@ module.exports ={
         })
     },
     find(id, callback){
-        const query = 'SELECT * FROM instrutores WHERE id=$1';
+        const query = `SELECT membros.*, instrutores.name as instrutor_name 
+        FROM membros 
+        LEFT JOIN instrutores ON(membros.instrutor_id=instrutores.id) 
+        WHERE membros.id=$1`;
         const values=[id];
         
         db.query(query, values, function(err,results){
@@ -49,22 +55,30 @@ module.exports ={
         });
     },
     update(data,callback){
-        const query= `UPDATE instrutores SET 
+        const query= `UPDATE membros SET 
         avatar_url=$1, 
         name=$2,
-        sexo=$3, 
-        servicos=$4,
-        data_nasc=$5
-        WHERE id=$6
+        email=$3,
+        sexo=$4, 
+        data_nasc=$5,
+        tipo_sangue=$6,
+        peso=$7,
+        altura=$8,
+        instrutor_id=$9
+        WHERE id=$10
         RETURNING id
         `;
 
         const values=[
             data.avatar_url,
             data.name,
+            data.email,
             data.sexo,
-            data.servicos,
             date(data.data_nasc).iso,
+            data.tipo_sangue,
+            data.peso,
+            data.altura,
+            data.instrutor_id,
             data.id
         ];
 
@@ -74,13 +88,21 @@ module.exports ={
         });
     },
     delete(id, callback){
-        const query = `DELETE FROM instrutores WHERE id = $1`;
+        const query = `DELETE FROM membros WHERE id = $1`;
         const values=[id];
         
         db.query(query, values, function(err,results) {
             if(err) throw `Database error ${err}`
             return callback();
         });
+    },
+    instrutorSelectOptions(callback){
+        const query = `SELECT id,name FROM instrutores`;
+
+        db.query(query,function(err,results){
+            if(err) throw `Database error ${err}`;
+            callback(results.rows);
+        })
     }
 
 }
