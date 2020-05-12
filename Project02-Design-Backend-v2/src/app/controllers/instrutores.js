@@ -3,19 +3,27 @@ const Instrutor=require('../model/Instrutor');
 
 module.exports={
     index(req,res){
-        const {filter} = req.query;
+        let {filter, page, limit} = req.query;
 
-        if(filter){
-            Instrutor.findBy(filter, function(instrutores){
-                return res.render("instrutores/index", {instrutores});
-            });
+        page= page || 1;
+        limit= limit || 2;
+        let offset=limit*(page-1);
 
-        }
-        else{
-            Instrutor.all(function(instrutores){
-                return res.render("instrutores/index", {instrutores});
-            });
-        }
+        const params={
+            filter,
+            page,
+            limit,
+            offset
+        };
+
+        Instrutor.paginate(params,function(instrutores){
+            const pagination={
+                total: Math.ceil(instrutores[0].total/limit),
+                page
+            }
+
+            return res.render("instrutores/index", {instrutores, pagination, filter});
+        });
     },
     create(req,res){
         return res.render("instrutores/cadastro");

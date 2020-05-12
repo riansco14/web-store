@@ -11,6 +11,36 @@ module.exports ={
             callback(results.rows);
         });
     },
+    paginate(params,callback){
+        const {filter,page,limit,offset} = params;
+        let filterQuery="",
+            totalQuery=`(SELECT count(*) FROM membros) AS total`
+            
+            
+            
+        if(filter){
+            filterQuery=`WHERE membros.name ILIKE '${filter}%' 
+            OR membros.email ILIKE '%${filter}%'`;
+            
+            totalQuery=`(
+                SELECT count(*) FROM membros 
+            ${filterQuery}
+            ) AS total`;
+        }
+
+        let query = `SELECT membros.*, ${totalQuery} 
+        FROM membros 
+        ${filterQuery} 
+        LIMIT $1 OFFSET $2`;
+
+        
+
+        db.query(query,[limit,offset] ,function(err,results) {
+            if(err) throw `Database error ${err.stack}`
+            
+            callback(results.rows);
+        });
+    },
     create(data, callback){
         const query = `INSERT INTO membros(
             avatar_url,

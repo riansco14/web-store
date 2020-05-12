@@ -5,7 +5,7 @@
         <div class="table-header-options">
                 <a class="button" href="/instrutores/cadastro">Novo</a>
                 <form action="/instrutores" method="GET">
-                    <input type="text" name="filter" placeholder="Filtrar por nome">
+                    <input type="text" name="filter" placeholder="Filtrar por nome" value="{{filter}}">
                     <button type="submit">Filtrar</button>
                 </form>
             </div>
@@ -45,5 +45,12 @@
 
             </tbody>
         </table>
+        <div class="pagination"
+            data-total={{pagination.total}}
+            data-page={{pagination.page}}
+            data-filter={{filter}}
+        >
+        
+        </div>
     </div>
 {% endblock content %}

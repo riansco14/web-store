@@ -282,3 +282,64 @@ tbody tr td:last-child a,
     display: grid;
     grid-template-columns: 1fr 120px;
 }
+
+.table-container{
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+}
+
+.table-container .table-header-options{
+    margin: 0;
+    align-self: start;
+}
+
+.table-container .pagination{
+    margin: 0;
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span{
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover{
+    filter: brightness(0.3);
+    border-bottom: 1px solid var(--primary-color);
+}
+/* layout*/
+/*
+.table-container{
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+}
+
+.table-container .table-header-options{
+    align-self: start;
+}
+.table-container .pagination{
+    margin: 0;
+    align-self:end;
+    justify-self: center;
+}
+.pagination{
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span{
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover{
+    filter: brightness(0.3);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+*/

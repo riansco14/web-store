@@ -1,4 +1,4 @@
-const {idade,date} = require('../../util/data');
+const {idade,date} = require('../../lib/utils')
 const db = require('../../config/db');
 
 module.exports ={
@@ -14,38 +14,9 @@ module.exports ={
             callback(results.rows);
         });
     },
-    paginate(params,callback){
-        const {filter,page,limit,offset} = params;
-        let filterQuery="",
-            totalQuery=`(SELECT count(*) FROM instrutores) AS total`
-            
-            
-            
-        if(filter){
-            filterQuery=`WHERE instrutores.name ILIKE '${filter}%' 
-            OR instrutores.servicos ILIKE '%${filter}%'`;
-            
-            totalQuery=`(
-                SELECT count(*) FROM instrutores 
-            ${filterQuery}
-            ) AS total`;
-        }
+    paginate(params){
 
-        let query = `SELECT instrutores.*, ${totalQuery} , count(membros) AS total_alunos 
-        FROM instrutores 
-        LEFT JOIN membros ON (membros.instrutor_id=instrutores.id) ${filterQuery} 
-        GROUP BY instrutores."id"
-        ORDER BY total_alunos DESC
-        LIMIT $1 OFFSET $2`;
-
-        
-
-        db.query(query,[limit,offset] ,function(err,results) {
-            if(err) throw `Database error ${err.stack}`
-        
-            
-            callback(results.rows);
-        });
+        params.callback(JSON.parse('[{"id":10,"avatar_url":"https://source.unsplash.com/collection/6800490/500x500","name":"Rico","gender":"M","birth":"2020-05-28T03:00:00.000Z","services":"VAPO, VAPO1","created_at":"2020-05-07T03:00:00.000Z","total":"18","total_alunos":"2"},{"id":10,"avatar_url":"https://source.unsplash.com/collection/6800490/500x500","name":"Rico","gender":"M","birth":"2020-05-28T03:00:00.000Z","services":"VAPO, VAPO1","created_at":"2020-05-07T03:00:00.000Z","total":"18","total_alunos":"2"}]'))
     },
     create(data, callback){
         const query = `INSERT INTO instrutores (
