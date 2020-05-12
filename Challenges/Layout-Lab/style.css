@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Helvetica Neue LT Pro 57 Condensed', sans-serif;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+body{
+    background-color: rgba(211, 211, 211, 0.801);
+}
+
+.box{
+    position: relative;
+    background-color: white;
+    width: 1024px;
+    height: 840px;
+    margin: 0 auto;
+    margin-top: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.616);
+}
+
+header{
+    background-color: rgba(200,0,0);
+    height: 48px;
+    margin-top: 48px;
+    border-top-right-radius: 16px;
+}
+
+header ul{
+    list-style: none;
+    height: 100%;
+    padding-left: 250px;
+}
+header ul li{
+    list-style: none;
+    float: left;
+    margin-left: 32px;
+    vertical-align: bottom;
+    margin-top: 15px;
+
+}
+
+header a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.span{
+    font-size: 18px;
+    vertical-align: middle;
+    background-color: white;
+    color: rgba(200,0,0);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.md18{
+    font-size: 18px;
+}
+
+.login{
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 240px;
+
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    padding: 8px 12px;
+
+    font-size: 12px;
+
+    
+}
+
+.login > div{
+    margin-bottom: 8px;
+}
+
+.login .image-container{
+    background: black;
+    width: 100%;
+    height: 120px;
+}
+
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.form{
+    width: 100%;
+}
+
+.title{
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(200,0,0);
+    border-left: 4px solid rgba(200,0,0);
+    padding-left: 4px;
+    font-weight: bold;
+}
+.form form div{
+    
+    font-weight: bold;
+    line-height: 24px;
+}
+
+.form form input[type="text"]{
+    display: inline-block;
+    border: 1px solid rgba(248, 211, 211, 0.904);
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.form form div button{
+    display: inline-block;
+    background-color: rgba(200,0,0);
+    color: white;
+    font-weight: normal;
+    width: 32px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 20%;
+    margin-left: 4px;
+}
+
+.aviso{
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    color: rgb(192, 9, 9);
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    padding: 8px;
+
+    background-color: rgb(250, 250, 250);
+
+}
+
+.aviso p{
+    margin-left: 4px;
+}
+
+.aviso span{
+    vertical-align: middle;
+    align-self: center;
+}
+
+.ol{
+    counter-reset: item;
+    list-style-type: none;
+    margin: 16px 0;
+}
+.ol li {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    margin-bottom: 8px;
+}
+.ol p{
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.ol li:before { 
+    content: counter(item); 
+    counter-increment: item;
+
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+
+    background-color: grey;
+    color: white;
+    border-radius: 30px;
+    display:inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.wrapper{
+    padding-left: 250px;
+    height: 100% -40px;
+    box-sizing: border-box;
+}
+
+.wrapper-image{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.wrapper-image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.box-content{
+    height: 100px;
+    width: 100%;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 51%, rgba(230,210,210,1) 100%); 
+    border-left: dotted 2px #aaa;
+
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.content{
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+
+    font-size: 12px;
+}
+.content-image-container{
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+.content-text{
+    display: grid;
+    grid-template-rows: 1fr 20px;
+    padding-left: 8px;
+}
+
+.content-text a{
+    color: rgb(192, 9, 9);
+}
+
+.boxs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 8px;
+    padding: 8px;
+}
+
+
+.box-content-hospitais{
+    background: rgb(255,255,255);
+    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,230,230,1) 100%); 
+    width: 100%; 
+    height: 200px;
+
+    box-sizing: border-box;
+
+
+    border-radius: 16px;
+
+    border: 1px solid rgb(243, 171, 171);
+
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+
+    padding: 16px;
+
+    font-size: 12px;
+
+    align-items: center;
+}
+
+.content-hospitais-info{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    align-items: center;
+
+    padding-left: 8px;
+}
+
+.content-hospitais-info p:first-child{
+    color: rgb(192, 9, 9);
+    font-weight: bold;
+}
+
+.btn-slider{
+    background: rgb(252,127,127);
+    background: radial-gradient(circle, rgba(252,127,127,1) 0%, rgba(255,0,0,1) 100%); 
+    border-radius: 50%;
+}
+
+.btn-slider span{
+    color: white;
+    vertical-align: middle;
+}
+
+footer{
+    font-size: 12px;
+    background: rgb(252,127,127);
+    background: linear-gradient(180deg, rgba(252,127,127,1) 36%, rgba(255,0,0,1) 61%); 
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+
+    height: 40px;
+    box-sizing: border-box;
+    
+    margin: 0 16px;
+    text-align: center;
+}
+
+
+/* #### Generated By: http://www.cufonfonts.com #### */
+
+@font-face {
+    font-family: 'Helvetica Neue LT Pro 57 Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Neue LT Pro 57 Condensed'), url('HelveticaNeueLTProCn.woff') format('woff');
+    }
+    
+    
+    
+@font-face {
+    font-family: 'Helvetica Neue LT Pro 57 Condensed';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Helvetica Neue LT Pro 77 Bold Condensed'), url('HelveticaNeueLTProBdCn.woff') format('woff');
+    }
+    
+    
+    
