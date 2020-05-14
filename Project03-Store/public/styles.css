@@ -88,3 +88,100 @@ nav.primary ul li a:hover{
 nav.primary ul li a i{
     margin-right: 8px;
 }
+
+/*==== CREATE PRODUTO ====*/
+section.form{
+    background-color: white;
+    max-width: 700px;
+    width: 90%;
+    padding: 32px 24px;
+    margin: 32px auto;
+
+
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    /* sombra */
+    box-shadow: 2px 2px 2px -2px rgba(60,60,60,0.5);
+
+    
+}
+div.header{
+    color: var(--primary-color);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    margin-bottom: 16px;
+}
+
+form .item div:first-child{
+    color: #777;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+form .item input[type="text"],
+form .item input[type="number"],
+form .item select,
+form .item textarea{
+    width: 100%;
+    padding: 8px 16px;
+
+    box-shadow: 2px 2px 2px -2px rgba(60,60,60,0.5);
+    border: 1px solid #efefef;
+    border-radius: 4px;
+
+    font-size: 16px;
+
+}
+form .item{
+    margin-bottom: 16px;
+}
+
+.button{
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 16px;
+    border-radius: 4px;
+
+    margin: 16px 0;
+    
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+
+    align-self: end;
+
+
+    cursor: pointer; /* a mãozinha qnd pasasr o mouse */
+
+    transition: all 0.2s;
+}
+.button:hover{
+    background-color: #d7780b;
+}
+
+form .item select{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve" fill="rgb(0, 110, 170)"> <g> <g id="arrow-drop-down"> <polygon points="0,63.75 127.5,191.25 255,63.75 "/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg> '),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+    background-position: right 0.7em top 50%,0 0; 
+    background-repeat: no-repeat; /* n repetir as imagens do icone*/
+    background-size: 1em , 100%; /* 1em : em ->tamanho da fonte do selector para o icone, 100% tamanho do gradiente */
+}
+
+form .item textarea{
+    min-height: 150px;
+}
