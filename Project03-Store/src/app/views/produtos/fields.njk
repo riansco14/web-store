@@ -6,7 +6,7 @@
             {% for categoria in categorias %}
                 <option value="{{categoria.id}}"
                 {% if produto.categoria_id ==categoria.id %}selected{% endif %}>
-                {{categoria.name}}</option>
+                {{categoria.nome}}</option>
             {% endfor %}
         </select>
     </div>
@@ -23,16 +23,36 @@
 <div class="item">
     <div>Descricão</div>
     <div>
-        <textarea name="descricao"></textarea>
+        <textarea name="descricao">{{produto.descricao}}</textarea>
     </div>
 </div>
 
 {# Campo de Foto #}
+<div class="item">
+    <div>Fotos</div>
+    <div>
+        <div id="fotos-upload">
+            <input id="fotos-input" type="file" name="fotos" multiple accept="image/*" onchange="FotoUpload.handleFile(event)">
+            <p>Selecione até 6 fotos</p>
+        </div>
+        <div id="fotos-preview">
+        {% if files %}
+            {% for file in files %}
+                <div class="foto" id="{{file.id}}">
+                    <img src="{{file.src}}" alt="{{file.nome}}">
+                    <i class="material-icons" onclick="FotoUpload.removeOldFoto(event)">close</i>
+                </div>
+            {% endfor %}
+            <input type="hidden" name="removed_files">
+        {% endif %}
+        </div>
+    </div>
+</div>
 
 <div class="item">
     <div>Digite o valor</div>
     <div>
-        <input type="text" name="preco" placeholder="Digite o valor do produto" value="{{produto.preco}}" {# Mascara para preço #}>
+        <input type="text" name="preco" placeholder="Digite o valor do produto" value="{{produto.preco}}" onkeydown="Mask.apply(this,'formatBRL')"{# Mascara para preço #}>
         {% if produto.old_preco %}
             <input type="hidden" name="old_preco" value="{{produto.old_preco}}">
         {% endif %}
@@ -46,7 +66,7 @@
     </div>
 </div>
 
-{% if produto.status %}
+{% if produto.status!=undefined %}
 
 <div class="item">
     <div>Disponivel ?</div>

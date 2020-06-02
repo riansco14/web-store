@@ -11,5 +11,14 @@ module.exports = {
             ano,
             iso: `${ano}-${mes}-${dia}`,
         };
+    },
+    formatPreco(value){
+        value = value.replace(/\D/g , "") //remove digitos que n sejam numeros
+        value = new Intl.NumberFormat('pt-BR',{
+            style: 'currency',
+            currency: 'BRL'
+        }).format(value/100)
+        
+        return value
     }
 }
