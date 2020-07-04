@@ -12,6 +12,37 @@ module.exports={
         })
 
     },
+    async show(req,res){
+        const {id} = req.params
+        const produto = (await Produto.findById(id)).rows[0]
+
+        if(!produto){
+            return res.send("Produto not found")
+        }
+        const {dia,
+            mes,
+            hora,
+            minutos}= Utils.date(produto.update_at)
+
+        produto.published= {
+            dia: `${dia}/${mes}`,
+            hora: `${hora}h${minutos}`
+        }
+
+         produto.old_preco=Utils.formatPreco(produto.old_preco)
+         produto.preco=Utils.formatPreco(produto.preco)
+
+        const categorias = (await Categoria.all()).rows
+        
+        //get images
+        let files = (await Produto.files(id)).rows
+        files = files.map(file =>({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}/${file.path.replace('public\\',"")}`
+        }))
+
+        res.render('produtos/show', {produto, categorias, files})
+    },
     async post(req,res){
         
         for(key of Object.keys(req.body)){
@@ -52,7 +83,6 @@ module.exports={
             src: `${req.protocol}://${req.headers.host}/${file.path.replace('public\\',"")}`
         }))
 
-        console.log(files);
         
 
 

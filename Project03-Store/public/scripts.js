@@ -115,3 +115,38 @@ const FotoUpload={
         fotoDiv.remove()
     }
 }
+
+
+const ImageGallery={
+    imagePanel:document.querySelector(".galeria .foco img"),
+    divElements:document.querySelectorAll(".galeria .galeria-preview > img"),
+    setImage(event){
+        let imageClick=event.target
+
+        for(element of this.divElements){
+            element.classList.remove("active")
+        }
+        imageClick.classList.add("active")
+        this.imagePanel.src=imageClick.src
+        Modal.image.src=imageClick.src
+    }
+}
+
+const Modal={
+    target: document.querySelector(".foco-modal"),
+    image: document.querySelector(".foco-modal img"),
+    closeButton: document.querySelector(".foco-modal .foco-modal-close"),
+    open(){
+        Modal.target.style.opacity=1
+        Modal.target.style.top=0
+        Modal.target.style.bottom=0
+        Modal.closeButton.style.top=0
+
+    },
+    close(){
+        Modal.target.style.opacity=0
+        Modal.target.style.top="-100%"
+        Modal.target.style.bottom="initial"
+        Modal.closeButton.style.top=0
+    }
+}

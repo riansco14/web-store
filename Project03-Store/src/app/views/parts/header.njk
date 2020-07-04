@@ -8,10 +8,10 @@
             </div>
         </a>
 
-        <form class="search"  method="get" action="/produtos/pesquisar">
+        <form class="search"  method="get" action="/produtos/search">
             <input type="text" name="filter" placeholder="Buscar por produtos"
                 {% if pesquisar.filter %}
-                    value='{{pesquisar.filter}}'
+                    value='{{search.filter}}'
                 {% endif %}>
         </form>
 

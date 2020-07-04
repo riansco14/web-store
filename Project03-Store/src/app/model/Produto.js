@@ -2,7 +2,7 @@ const db=require('../../config/db')
 
 module.exports={
     all(){
-
+        return db.query(`SELECT * FROM produtos ORDER BY update_at DESC`)
     },
     create(data){
         const query=`INSERT INTO produtos(categoria_id,usuario_id,nome,descricao,old_preco,preco,quantidade,status) 
@@ -70,5 +70,30 @@ module.exports={
     },
     files(id){
         return db.query(`SELECT * FROM files WHERE produto_id = $1`,[id])
+    },
+    search(params){
+        const {filter, categoria} = params
+
+        console.log("eusou o kidd",categoria)
+        let query = "",
+            filterQuery= "WHERE"
+
+        if(categoria){
+            filterQuery=`${filterQuery} produtos.categoria_id = ${categoria} AND`
+        }
+
+        filterQuery=`${filterQuery} 
+        produtos.nome ILIKE '%${filter}%' 
+        OR produtos.descricao ILIKE '%${filter}%' `
+
+        query = `
+            SELECT produtos.*, 
+                categorias.nome AS categoria_nome
+            FROM produtos
+            LEFT JOIN categorias ON (categorias.id = produtos.categoria_id)
+            ${filterQuery}
+        `
+
+        return db.query(query)
     }
 }

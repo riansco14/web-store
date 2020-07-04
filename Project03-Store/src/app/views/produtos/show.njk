@@ -1,0 +1,64 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+    <section class="produto-single container">
+        <div class="galeria">
+            <div class="foco">
+                {% if not files[0] %}
+                    <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO">
+                {% else %}
+                    <img src="{{files[0].src}}" onclick="Modal.open()">
+                {% endif %}
+            
+                <div class="foco-modal">
+                    <img src="{{files[0].src}}" >
+                    <a href="#" class="foco-modal-close" onclick="Modal.close()">
+                        <i class="material-icons">close</i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="galeria-preview">
+                {% for file in files %}
+                    <img src="{{file.src}}" alt="{{file.name}}"
+                    {% if loop.index0==0 %}
+                        class="active"
+                    {% endif %}
+
+                    onclick="ImageGallery.setImage(event)"
+                    >
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="info">
+            <h1>{{produto.nome}}</h1>
+            <div class="published">
+                Publicado em {{produto.published.dia}} às {{produto.published.hora}}
+            </div>
+            <div class="description">
+                {{produto.descricao}}
+            </div>
+            <div class="price-buy">
+                <div class="price">
+                   {{produto.preco}}
+                   {% if produto.old_preco !== produto.preco %}
+                   <span class="old-price">{{produto.old_preco}}</span>
+                   {% endif %}
+                </div>
+                <div class="buy">
+                    {% if produto.status==0 %}
+                        <p class="unavailable">Indisponivel</p>
+                    {% elseif produto.quantidade==0 %}
+                        <p class="unavailable">Indisponivel</p>
+                    {% else %}
+                        <button class="button">Comprar</button>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock content %}
