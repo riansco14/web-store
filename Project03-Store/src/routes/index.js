@@ -2,13 +2,14 @@ const express=require('express');
 const routes=express.Router();
 const multer = require('../app/middlewares/multer')
 const HomeController= require('../app/controllers/HomeController')
-//sconst Usuarios=require('./usuarios')
+const Usuario=require('./usuarios')
 const Produtos=require('./produtos')
 
 
 routes.get('/', HomeController.index);
 //routes.use('/usuarios', Usuarios)
 routes.use('/produtos', Produtos)
+routes.use('/usuario', Usuario)
 routes.get('/ads/create')
 
 //Search
