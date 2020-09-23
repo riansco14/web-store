@@ -20,6 +20,10 @@
     animation: errorAnimation 400ms 3s ease-out forwards;
 }
 
-.error{
+.messages.error{
     background-color: #e74c3c;
+}
+
+.messages.success{
+    background-color: rgb(122, 182, 30);
 }

@@ -1,0 +1,32 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<section class="user-dashboard container form">
+    <form method="POST" action="/usuario?_method=PUT">
+        <div class="header">
+            <h3>Detalhes </h3>
+        </div>
+        <div class="fields">
+            {% include 'usuario/fields.njk' %}
+            <input type="hidden" name="id" value={{user.id}}>
+        </div>
+
+        <button class="button edit" type="submit">Atualizar</button>
+    </form>
+
+    <form id="formExcluir" action="/usuario?_method=DELETE" method="post">
+        <input type="hidden" name="id" value={{user.id}}>
+        <button class="button delete" type="submit">Deletar</button>
+    </form>
+</section>
+
+<script>
+    const formExcluir=document.querySelector("#formExcluir");
+    formExcluir.addEventListener("submit",function(event){
+        if(!window.confirm("Deseja excluir sua conta? Esse processo não pode ser revertido"))
+            event.preventDefault();
+    })
+    </script>
+
+{% endblock content %}

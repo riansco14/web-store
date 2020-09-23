@@ -1,6 +1,6 @@
 const db=require('../../config/db')
-const { create } = require('browser-sync')
 const { hash } = require('bcryptjs')
+const { update } = require('../controllers/UserController')
 
 module.exports={
     async findOne(filters){
@@ -33,6 +33,20 @@ module.exports={
 
         values = [nome, email, passwordHash, cpf_cnpj, cep, endereco]
 
-        return db.query(query,values)
+        const results = await db.query(query,values)
+        
+        return results.rows[0]
+    },
+    async update(id, fields){
+        let query = `
+        UPDATE usuarios SET nome =$1, email=$2, cpf_cnpj = $3, cep = $4, endereco = $5
+        WHERE id=${id}
+        `
+
+        const {nome, email, cpf_cnpj, cep, endereco} = fields
+
+        values = [nome, email, cpf_cnpj, cep, endereco]
+        await db.query(query, values)
+        return
     }
 }

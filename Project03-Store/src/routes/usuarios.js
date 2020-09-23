@@ -8,9 +8,10 @@ routes.get('/register', UsuarioController.registerForm)
 routes.post('/register',Validator.post, UsuarioController.post)
 
 
-routes.get('/',UsuarioController.show)
+routes.get('/', Validator.show, UsuarioController.show)
+
+routes.put('/',Validator.update ,UsuarioController.update)
 /*
-routes.put('/',UsuarioController.update)
 routes.delete('/',UsuarioController.delete)
 */
 module.exports=routes;
