@@ -1,14 +1,12 @@
 const User = require('../model/User')
 const {formatCpfCnpj, formatCep} = require('../../util/data')
-const user = require('../validators/user')
 
 module.exports={
     registerForm(req,res){
         return res.render("usuario/register")
     },
     async show(req,res){
-        user= req.user
-        console.log(user.cpf_cnpj)
+        const user= req.user
         user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
         user.cep = formatCep(user.cep)
 

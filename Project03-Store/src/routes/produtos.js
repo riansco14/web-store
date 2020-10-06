@@ -5,12 +5,12 @@ const multer = require('../app/middlewares/multer')
 const ProdutoController=require('../app/controllers/ProdutoController')
 const SearchController=require('../app/controllers/SearchController')
 
-
+const {onlyUsuario} = require('../app/middlewares/session')
 
 routes.get('/search', SearchController.index)
 
 
-routes.get('/create', ProdutoController.create);
+routes.get('/create', onlyUsuario, ProdutoController.create);
 routes.get('/:id', ProdutoController.show);
 routes.get('/:id/edit', ProdutoController.edit);
 routes.post('/', multer.array("fotos", 6) ,ProdutoController.post);

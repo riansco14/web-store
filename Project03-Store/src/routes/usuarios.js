@@ -1,16 +1,27 @@
 const express=require('express');
 const routes=express.Router();
 const UsuarioController=require("../app/controllers/UserController")
-const Validator=require('../app/validators/user')
+const UserValidator=require('../app/validators/user')
 
-//user register UserController
+const SessionController= require('../app/controllers/SessionController')
+const SessionValidator=require('../app/validators/session')
+
+routes.get('/', UserValidator.show, UsuarioController.show)
+routes.put('/',UserValidator.update ,UsuarioController.update)
+
+
 routes.get('/register', UsuarioController.registerForm)
-routes.post('/register',Validator.post, UsuarioController.post)
+routes.post('/register',UserValidator.post, UsuarioController.post)
 
 
-routes.get('/', Validator.show, UsuarioController.show)
 
-routes.put('/',Validator.update ,UsuarioController.update)
+
+
+//login/logout
+routes.get('/login', SessionController.loginForm)
+routes.post('/login', SessionValidator.login, SessionController.login)
+routes.post('/logout', SessionController.logout)
+
 /*
 routes.delete('/',UsuarioController.delete)
 */

@@ -6,7 +6,11 @@ const Usuario=require('./usuarios')
 const Produtos=require('./produtos')
 
 
+
 routes.get('/', HomeController.index);
+routes.get('/conta', function(req,res){
+    return res.redirect('/usuario/login')
+});
 //routes.use('/usuarios', Usuarios)
 routes.use('/produtos', Produtos)
 routes.use('/usuario', Usuario)
@@ -16,12 +20,10 @@ routes.get('/ads/create')
 
 
 
-/*
-//login/logout
-routes.get('/login', SessionController.loginForm)
-routes.post('/login', SessionController.login)
-routes.post('/logout', SessionController.logout)
 
+
+
+/*
 // reset password /forgot
 routes.get('/forgot-password', SessionController.forgotForm)
 routes.get('/password-reset', SessionController.resetForm)

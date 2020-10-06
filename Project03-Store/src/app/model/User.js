@@ -3,21 +3,17 @@ const { hash } = require('bcryptjs')
 const { update } = require('../controllers/UserController')
 
 module.exports={
-    async findOne(filters){
-        let query=`SELECT * FROM usuarios`
+    async findOne(filters) {
+        let query = 'SELECT * FROM usuarios'
+        Object.keys(filters).map(key => {
+            query = `${query} ${key}`
 
-        Object.keys(filters).map(key =>{
-            // WHERE | or | AND
-            query = `${query} 
-            ${key}`
-
-            Object.keys(filters[key]).map(field =>{
-                query= `${query} ${field} = '${filters[key][field]}'`
+            Object.keys(filters[key]).map(field => {
+                query = `${query} ${field} = '${filters[key][field]}'`
             })
         })
-
         const results = await db.query(query)
-        
+
         return results.rows[0]
     },
     async create(data){
