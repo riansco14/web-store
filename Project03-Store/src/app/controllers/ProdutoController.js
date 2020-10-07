@@ -55,7 +55,7 @@ module.exports={
         }
 
         
-        let results=await Produto.create(req.body)
+        let results=await Produto.create({...req.body,usuario_id: req.session.userId})
         const produtoId= results.rows[0].id
         
         const filesPromise=req.files.map(file=>File.create({...file,produto_id: produtoId}))

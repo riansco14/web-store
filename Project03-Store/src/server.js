@@ -6,6 +6,11 @@ const session = require('./config/session')
 
 const server = express();
 server.use(session)
+server.use((req,res,next)=>{
+    res.locals.session = req.session
+    next()
+})//adiciona a sessão as response
+
 server.use(express.urlencoded({ extended: true })); //aceita o body do post do cadastro
 server.use(express.static('public')); // arquivos da pasta public
 server.use(methodOverride('_method')); //faz o formulário aceitar PUT e DELETE com o uso do query ?_method=PUT

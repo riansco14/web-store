@@ -35,13 +35,14 @@ module.exports={
     },
     async update(id, fields){
         let query = `
-        UPDATE usuarios SET nome =$1, email=$2, cpf_cnpj = $3, cep = $4, endereco = $5
+        UPDATE usuarios SET nome =$1, email=$2, cpf_cnpj = $3, cep = $4, endereco = $5, reset_token = $6, reset_token_expires = $7
         WHERE id=${id}
         `
-
         const {nome, email, cpf_cnpj, cep, endereco} = fields
+        const reset_tokena = fields.reset_token || ''
+        const reset_token_expiresa = fields.reset_token_expires || ''
 
-        values = [nome, email, cpf_cnpj, cep, endereco]
+        values = [nome, email, cpf_cnpj, cep, endereco, reset_tokena, reset_token_expiresa]
         await db.query(query, values)
         return
     }
